@@ -40,3 +40,36 @@ export const getPostsRequest = async () => {
         }
     }
 }
+
+export const savePostRequest = async(post) =>{
+    try {
+        return await apiClient.post('/post/createPost', post)
+    } catch (err) {
+        return{
+            error: true,
+            err
+        }
+    }
+}
+
+export const updatePostRequest = async(id, post) =>{
+    try {
+        return await apiClient.put(`/post/editPost/${id}`, post)
+    } catch (err) {
+        return{
+            error: true,
+            err
+        }
+    }
+}
+
+export const deletePostRequest = async(id) =>{
+    try {
+        return await apiClient.delete(`/post/deletePost/${id}`)
+    } catch (err) {
+        return {
+            error: true,
+            err
+        }
+    }
+}
